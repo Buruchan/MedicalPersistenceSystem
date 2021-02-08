@@ -1,0 +1,30 @@
+.container{:id => "dashboard"}
+    %br
+    .container-header
+        %h1{:id=>"dash"} Patient Profile
+    %br
+    .card
+        .card-header
+            %h5{:class=>"card-title"} Patient Profile
+        .card-body
+            .row
+                .col-8
+                    %h6 Name : #{@patient.name}
+                    %h6 Age in Years : #{@patient.age}
+                    %h6 MRN : #{@patient.mrn}
+                    %br
+
+                        
+    %br    
+                  
+    %br
+    .card
+        .card-header
+            %h5{:class=>"card-title"} Provider Feedback
+        .card-body
+            %textarea{:class => "form-control", :rows => 10, :readonly => "readonly", :placeholder => "The provider hasn't given the feedback yet."}
+                = @patient.feedback
+    %br
+    .container-footer
+        = link_to 'Back to List', '/login', :class => "dash btn btn-danger btn-lg"
+    %br

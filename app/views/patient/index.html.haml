@@ -1,0 +1,42 @@
+// %h1 Patient Portal Page#index
+// %p Find me in app/views/patient/index.html.haml
+// %p To be implemented.
+// - if current_user
+//     = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "sticky-top float-right btn btn-outline-danger",:id => "left", :style => "z-index: 1"
+
+
+.container
+  %p.alert.alert-warning= flash[:notice]
+  // %p#notice= notice
+  %br/
+  %h2.float-left{style: 'color: #79589f;'}Patient Panel 
+  - if current_user
+    = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "sticky-top float-right btn btn-outline-danger",:id => "right"
+    %br/
+  %br/
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th MRN
+        %th Age
+        %th Survey Date
+        %th Provider Feedback
+    %tbody
+      - @questions.each do |question|
+        %tr
+          %td= question.name
+          %td= question.mrn
+          %td= question.age
+          %td= question.created_at
+          //Remove as requested by the customer
+          // %td= link_to 'Show Response', question#showtouser
+          %td= link_to "View Feedback", dashboard_path(question)
+          // %td= link_to 'Edit Response', edit_question_path(question)
+          // %td= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Survey', new_question_path, :class => "sticky-top float-left btn btn-outline-primary"
+
+  // - if current_user
+  //   = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "btn btn-outline-success",:id => "center"
