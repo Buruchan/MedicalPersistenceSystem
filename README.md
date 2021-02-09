@@ -4,7 +4,7 @@ Deployed on Heroku: https://mps-2020-fall.herokuapp.com/
 
 # Install Guide
 ```sh
-git clone https://github.com/Siyangyang/MedicalPersistanceSystem2020.git
+git clone https://github.com/Buruchan/MedicalPersistenceSystem.git
 rvm install 2.4.0
 rvm use 2.4.0
 ```
